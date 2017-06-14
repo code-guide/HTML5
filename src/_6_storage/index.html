@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Storage feature.</title>
+</head>
+
+<body>
+	<a href="..">back</a>
+
+	<section id="local-storage">
+		<header>
+			<h6>localStorage</h6>
+		</header>
+
+		<div>
+			<label for="key">key: </label><input type="text" name="key" class="key">
+			<label for="value">value: </label><input type="text" name="value" class="value">
+			<button class="save">save</button>
+		</div>
+		<div>
+			<ol></ol>
+		</div>
+	</section>
+
+	<section id="session-storage">
+		<header>
+			<h6>sessionStorage</h6>
+		</header>
+		<p>接口与localStorage完全相同，区别是浏览器关闭后所有数据会被清空。多用于页面跳转使用。</p>
+	</section>
+
+	<!-- -->
+	<script>
+		window.onload = function () {
+
+			// get all keys
+			for (let key in localStorage) {
+
+			}
+
+			// save
+			document.querySelector('#local-storage button.save')
+				.addEventListener('click', function (e) {
+					let key = document.querySelector('#local-storage input.key').value;
+					let value = document.querySelector('#local-storage input.value').value;
+
+					// set item
+					localStorage.setItem(key, value);
+
+					_genList([{ key, value }])
+
+					// get item
+					let newItem = localStorage.getItem(key);
+					console.log('new item value: ' + newItem);
+				});
+
+			// storage change
+			window.addEventListener('storage', function (e) {
+				console.log(e);
+			});
+
+			function _genList(data) {
+				let list = document.querySelector('#local-storage ol');
+				list.innerHTML = '';
+				data.forEach((item) => list.innerHTML += `<li>${item.key} : ${item.value}</li>`);
+			}
+		}
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+{
+	"name": "code-guide-HTML5",
+	"version": "0.0.1",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"dev": "./node_modules/.bin/http-server ./src -p 6060"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/code-guide/HTML5.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/code-guide/HTML5/issues"
+	},
+	"homepage": "https://github.com/code-guide/HTML5#readme",
+	"devDependencies": {
+		"http-server": "^0.10.0"
+	}
+}
